@@ -24,7 +24,7 @@ body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  margin: 0;
+  margin: 4px;
   padding: 0;
   padding-top: 110px; /* 40px top bar + 70px header */
 }
@@ -51,9 +51,9 @@ section + section {
   color: var(--cream-white);
   font-size: 0.9rem;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 4px;
+  left: 4px;
+  right: 4px;
   z-index: 1001;
   border-bottom: 1px solid var(--secondary-green);
 }
@@ -102,33 +102,65 @@ section + section {
 .language-switcher {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-right: 1rem;
   padding-right: 1rem;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .language-switcher a {
-  color: white;
   text-decoration: none;
   font-size: 0.9rem;
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.language-switcher a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.language-switcher a.active {
-  background-color: var(--primary-green);
+.language-button {
   color: white;
-  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px !important;
+  transition: all 0.3s ease;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
 }
 
-.language-switcher span {
-  color: rgba(255, 255, 255, 0.6);
+.language-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  transform: none !important;
+}
+
+.language-button.active {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Flags */
+.flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin-right: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.flag-es {
+  background-image: url("/fotos/espania.png");
+  background-color: #aa152c; /* Fallback color rojo de España */
+}
+
+.flag-en {
+  background-image: url("/fotos/uk.png");
+  background-color: #012169; /* Fallback color azul del Reino Unido */
 }
 
 .social-links-top a {
@@ -155,9 +187,9 @@ section + section {
   background: var(--light-beige);
   box-shadow: 0 2px 10px rgba(93, 64, 55, 0.15);
   position: fixed;
-  top: 40px;
-  left: 0;
-  right: 0;
+  top: 44px;
+  left: 4px;
+  right: 4px;
   z-index: 1000;
   border-bottom: 2px solid var(--dark-brown);
 }
@@ -1039,8 +1071,8 @@ section + section {
 /* WhatsApp Button */
 .whatsapp-button {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 34px;
+  right: 34px;
   z-index: 1000;
 }
 
@@ -1080,41 +1112,67 @@ section + section {
 /* Responsive Design */
 @media (max-width: 768px) {
   .top-bar {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .top-bar-content {
-    height: 35px;
+    height: 50px;
+    flex-direction: column;
+    gap: 0;
+    padding: 4px 0;
   }
 
   .contact-info-top {
-    gap: 15px;
+    gap: 10px;
+    order: 2;
   }
 
   .contact-item-top {
-    gap: 5px;
+    gap: 3px;
   }
 
   .contact-item-top a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .contact-item-top i {
+    font-size: 0.7rem;
   }
 
   .social-links-top {
-    gap: 10px;
+    gap: 8px;
+    order: 1;
+    margin-bottom: 2px;
   }
 
   .social-links-top a {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .language-switcher {
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .language-switcher a {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.25rem;
+  }
+
+  .flag {
+    width: 16px;
+    height: 11px;
   }
 
   .header {
-    top: 35px;
+    top: 54px;
   }
 
   body {
-    padding-top: 105px; /* 35px top bar + 70px header */
+    padding-top: 120px; /* 50px top bar + 70px header */
   }
 
   .hamburger {
@@ -1238,8 +1296,8 @@ section + section {
   }
 
   .whatsapp-button {
-    bottom: 20px;
-    right: 20px;
+    bottom: 24px;
+    right: 24px;
   }
 
   .whatsapp-button a {
@@ -1251,29 +1309,44 @@ section + section {
 
 @media (max-width: 480px) {
   .top-bar-content {
-    height: 30px;
+    height: 45px;
+    padding: 3px 0;
   }
 
   .contact-info-top {
-    gap: 10px;
+    gap: 8px;
   }
 
   .contact-item-top a {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .contact-item-top i {
+    font-size: 0.65rem;
   }
 
   .social-links-top a {
-    width: 22px;
-    height: 22px;
-    font-size: 0.75rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+  }
+
+  .language-switcher a {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.2rem;
+  }
+
+  .flag {
+    width: 14px;
+    height: 10px;
   }
 
   .header {
-    top: 30px;
+    top: 49px;
   }
 
   body {
-    padding-top: 100px; /* 30px top bar + 70px header */
+    padding-top: 115px; /* 45px top bar + 70px header */
   }
 
   .container {
@@ -1663,6 +1736,52 @@ section + section {
     max-width: 300px;
     justify-content: center;
   }
+
+  /* Contact section responsive */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contact-form-container {
+    order: 1;
+  }
+
+  .contact-info {
+    order: 2;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    align-items: flex-start;
+  }
+
+  .contact-item i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 40px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1685,5 +1804,58 @@ section + section {
 
   .placeholder-image i {
     font-size: 2.5rem;
+  }
+
+  /* Contact section for small mobile */
+  .contact {
+    padding: 30px 0;
+  }
+
+  .contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-intro p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-item {
+    margin-bottom: 1rem;
+  }
+
+  .contact-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-item a {
+    font-size: 0.9rem;
+  }
+
+  .contact-item i {
+    font-size: 1.3rem;
+    margin-right: 0.8rem;
+    width: 35px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.8rem;
   }
 }
