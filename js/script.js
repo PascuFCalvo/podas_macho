@@ -37,20 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (dropdownToggle && dropdown) {
     dropdownToggle.addEventListener("click", function (e) {
-      // Solo prevenir el comportamiento por defecto en móviles
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle("active");
+      e.preventDefault();
+      dropdown.classList.toggle("active");
+    });
+    // Cerrar el dropdown si se hace click fuera
+    document.addEventListener("click", function (event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
       }
     });
   }
-
-  // Cerrar dropdown al cambiar tamaño de ventana
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 768 && dropdown) {
-      dropdown.classList.remove("active");
-    }
-  });
 });
 
 // Scroll suave para enlaces internos
